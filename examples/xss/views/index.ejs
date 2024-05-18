@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Date.now()</title>
+    <link rel="icon" href="https://fav.farm/📝" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="./client/index.ts" type="module" defer></script>
+  </head>
+  <body class="<%= query.theme %> my-8">
+    <header class="container">
+      <h1 class="font-mono">The Date.now()</h1>
+    </header>
+    <nav class="container flex items-center justify-between w-full py-4">
+      <%- Object.entries(query).map(([key, value]) => `
+      <div class="parameter">
+        <strong>${key}</strong>
+        <span>${value}</span>
+      </div>
+      `).join('') %>
+      <div>
+        <a href="/?theme=light" class="font-bold dark:font-normal">Light</a> /
+        <a href="/?theme=dark" class="font-normal dark:font-bold">Dark</a>
+      </div>
+    </nav>
+    <main class="container flex flex-col gap-8 py-16 lg:flex-row">
+      <%- include('partials/content') %>
+      <section class="w-full md:min-w-[50%]">
+        <h2>Comment Section</h2>
+        <form action="/comment" method="POST">
+          <textarea
+            name="content"
+            placeholder="Enter your comment here"
+          ></textarea>
+          <button type="submit">Submit</button>
+        </form>
+        <div id="comments" class="flex flex-col gap-8 py-8">
+          <!-- Comments rendered server-side -->
+          <%- comments.map(comment => `
+          <div class="comment">${comment.content}</div>
+          `).join('') %>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

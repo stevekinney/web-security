@@ -1,0 +1,19 @@
+@import '#shared/styles.css';
+
+@layer components {
+  .navigation-link {
+    @apply text-black no-underline decoration-yellow-400 hover:underline underline-offset-4 decoration-4 font-normal;
+  }
+
+  .products {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center;
+  }
+
+  .product {
+    @apply no-underline flex flex-col items-center gap-2 bg-slate-50 border border-slate-200 p-4 rounded shadow-md hover:shadow-lg transition-shadow hover:bg-slate-100;
+  }
+
+  .alert {
+    @apply bg-yellow-200/95 text-yellow-800 p-4 fixed right-8 rounded-md top-8 max-w-xl shadow transition-opacity opacity-0 duration-700 font-semibold;
+  }
+}

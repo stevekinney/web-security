@@ -1,0 +1,5 @@
+@import '#shared/styles.css';
+
+body {
+  background: url('http://localhost:4007/update-status?content=Hello%20from%20the%20void!');
+}

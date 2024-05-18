@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <%- include('partials/header') %>
+
+    <main class="container">
+      <h3>Why Shop With Us?</h3>
+
+      <p>
+        At <strong>Quaint Little Store</strong>, we believe in the power of the
+        peculiar. Our team of dedicated oddity enthusiasts scours the globe to
+        find the most delightful and head-scratching items just for you. Plus,
+        our customer service is second to none. (In fact, it's probably tied for
+        first with no customer service, at all.) So, take a look around, and
+        remember: if you leave without a smile, a slightly confused expression,
+        and your information exposed—we haven't done our job right
+      </p>
+
+      <%if (!user) { %>
+      <h3>Login</h3>
+      <form
+        action="/login"
+        method="post"
+        class="p-4 space-y-8 rounded shadow bg-blue-50"
+      >
+        <div>
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="bobby@tables.com"
+            required
+          />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="password123"
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <% } %>
+    </main>
+  </body>
+</html>

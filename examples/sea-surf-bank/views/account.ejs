@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body class="flex items-center justify-center bg-blue-100">
+    <main class="container p-16 my-16 bg-white rounded shadow-md">
+      <h1 class="text-4xl font-semibold text-center">Account</h1>
+      <div class="flex flex-col gap-4 mt-8">
+        <p class="text-xl text-center">
+          Your current account balance is:
+          <span class="account-balance"><%= user.balance %>.</span>
+        </p>
+        <% if (message) { %>
+        <p class="my-8 information"><%= message %></p>
+        <% } %>
+        <form action="/transfer" method="post" class="p-8 my-8">
+          <h2>Transfer Funds</h2>
+          <div class="flex flex-col gap-4">
+            <div>
+              <label for="recipient">Recipient</label>
+              <select name="recipient" required>
+                <option value="" disabled selected>Select a friend</option>
+                <% friends.forEach((user) => { %>
+                <option value="<%= user.id %>"><%= user.username %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div>
+              <label for="amount">Amount</label>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                placeholder="Amount"
+                required
+              />
+            </div>
+            <button type="submit" class="p-2 text-white bg-blue-500 rounded">
+              Transfer
+            </button>
+          </div>
+        </form>
+      </div>
+      <footer class="container">
+        <form action="/logout" method="post">
+          <button type="submit" class="p-2 text-white bg-red-500 rounded">
+            Logout
+          </button>
+      </footer>
+    </main>
+  </body>
+</html>

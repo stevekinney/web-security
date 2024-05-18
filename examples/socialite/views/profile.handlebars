@@ -1,0 +1,14 @@
+<div class="space-y-16 sm:mx-auto sm:w-full md:max-w-xl">
+  {{#if message}}
+    <div class="information">{{message}}</div>
+  {{/if}}
+
+  <section>
+    <h2>Update Profile</h2>
+    <user-profile-form username="{{user.username}}" photograph="{{user.photograph}}" biography="{{user.biography}}" />
+  </section>
+
+  <section>
+    <h2>Delete Account</h2>
+    <delete-account-form />
+</div>

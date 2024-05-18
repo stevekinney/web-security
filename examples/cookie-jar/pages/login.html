@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Login — Cookie Jar</title>
+    <link rel="icon" href="https://fav.farm/🍪" />
+    <link rel="stylesheet" href="/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="container relative my-20">
+    <h1>Login</h1>
+
+    <p class="my-8">
+      Please login to access the
+      <span class="font-serif italic font-bold text-pink-700">secret</span>
+      page.
+    </p>
+
+    <form action="/login" method="post" class="p-4 space-y-8 shadow bg-blue-50">
+      <div>
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          required
+        />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>

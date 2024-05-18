@@ -1,0 +1,13 @@
+<% if (error || message) { %>
+<div class="mb-16">
+  <% if (message) { %>
+  <div>
+    <p class="container information"><%= message %></p>
+  </div>
+  <% } %> <% if (error) { %>
+  <div>
+    <p class="container error"><%= error %></p>
+  </div>
+  <% } %>
+</div>
+<% } %>

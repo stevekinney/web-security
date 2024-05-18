@@ -1,0 +1,22 @@
+@import '#shared/styles.css';
+
+.parameter {
+  @apply flex text-white capitalize items-center;
+}
+
+.parameter span,
+.parameter strong {
+  @apply font-semibold block px-2 py-1;
+}
+
+.parameter strong {
+  @apply rounded-l bg-slate-500;
+}
+
+.parameter span {
+  @apply font-normal rounded-r bg-slate-700;
+}
+
+.comment {
+  @apply p-8 border dark:border-slate-800 bg-slate-100 dark:bg-slate-900 rounded shadow dark:shadow-none dark:text-white;
+}

@@ -1,0 +1,33 @@
+<div class="sm:mx-auto sm:w-full sm:max-w-sm">
+  <h2>Log In</h2>
+
+  {{#if error}}
+    <p class="error">{{error}}</p>
+  {{/if}}
+
+  <form action="/login" method="post">
+    <div>
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Username"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        required
+      />
+    </div>
+
+    <button type="submit">Login</button>
+  </form>
+</div>

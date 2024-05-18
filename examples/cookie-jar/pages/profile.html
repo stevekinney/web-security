@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Profile — Cookie Jar</title>
+    <link rel="icon" href="https://fav.farm/🍪" />
+    <link rel="stylesheet" href="/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="container relative my-20">
+    <section class="space-y-8">
+      <h1 class="font-normal">
+        Welcome,
+        <span class="font-semibold bg-yellow-100">{{username}}</span>.
+      </h1>
+
+      <div id="hijack-cookie-result" class="p-4 rounded shadow bg-slate-50">
+        It's a secret to everybody.
+      </div>
+
+      <section class="flex gap-4">
+        <div>
+          <button id="hijack-cookie">Hijack Cookie</button>
+        </div>
+
+        <form action="/logout" method="post">
+          <button type="submit">Logout</button>
+        </form>
+      </section>
+    </section>
+
+    <script src="/hijack.js" type="module" defer></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<div class="container max-w-2xl space-y-8">
+  {{#if user}}
+    <create-post></create-post>
+  {{/if}}
+
+  <socialite-posts
+    posts="{{json posts}}"
+    user="{{json user}}"
+  ></socialite-posts>
+</div>

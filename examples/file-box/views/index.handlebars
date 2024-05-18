@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each files as |file|}}
+      <tr>
+        <td><a href="/files?file={{file.name}}">{{file.name}}</a></td>
+        <td class="font-mono">{{file.type}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

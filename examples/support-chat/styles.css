@@ -1,0 +1,23 @@
+@import '#shared/styles.css';
+
+@layer components {
+  .message {
+    @apply bg-blue-500 text-white py-2 px-4 rounded-lg max-w-full;
+  }
+
+  .message a {
+    @apply text-white;
+  }
+
+  .support {
+    @apply bg-gray-200 text-gray-800 self-start;
+  }
+
+  .message-sender {
+    @apply text-sm font-bold;
+  }
+
+  .malicious .support {
+    @apply bg-red-500 text-white;
+  }
+}

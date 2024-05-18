@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Legitimate Chat</title>
+    <link rel="icon" href="https://fav.farm/💬" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./client/victim.ts" defer></script>
+  </head>
+  <body class="min-h-screen bg-white">
+    <header
+      class="fixed top-0 left-0 right-0 flex items-center p-4 bg-white shadow-sm"
+    >
+      <h1 class="mb-0 text-base">Support Chat</h1>
+    </header>
+    <div
+      id="messages"
+      class="flex flex-col items-end justify-end h-screen gap-4 px-8 py-24 bg-blue-50"
+    >
+      <div class="message support">
+        <p>Hello! How can I help you today?</p>
+      </div>
+      <div class="message customer">
+        <p>I need help…</p>
+      </div>
+    </div>
+    <%- include('partials/chat-message') %>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CORS Field</title>
+    <link rel="icon" href="https://fav.farm/🏟️" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/client/index.ts" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container py-16 space-y-16">
+      <div>
+        <form id="request" method="POST" action="/echo">
+          <div>
+            <label for="host">Host</label>
+            <input id="host" placeholder="localhost" value="localhost" />
+          </div>
+          <div>
+            <label for="port">Port</label>
+            <input id="port" placeholder="4002" />
+          </div>
+          <div>
+            <label for="path">Path</label>
+            <input id="path" placeholder="/echo" value="/echo" />
+          </div>
+          <div>
+            <label for="method">Method</label>
+            <select id="method">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+          </div>
+          <div>
+            <label for="body">Body</label>
+            <input id="body" placeholder="Data" />
+          </div>
+          <button>Fetch Data</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

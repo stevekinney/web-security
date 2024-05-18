@@ -1,0 +1,50 @@
+<header class="flex flex-col gap-4 pt-8 mb-16 font-sans shadow bg-slate-50">
+  <div class="container py-4 space-y-4 last:pb-8">
+    <h1
+      class="my-0 text-4xl font-semibold text-center md:text-6xl md:text-left"
+    >
+      Quaint Little Store
+    </h1>
+    <nav>
+      <ul class="flex justify-center gap-4 pl-0 md:justify-start">
+        <li>
+          <a href="/" class="navigation-link">Home</a>
+        </li>
+        <li>
+          <a href="/products" class="navigation-link">Products</a>
+        </li>
+        <li>
+          <a href="/privacy" class="navigation-link">Privacy Policy</a>
+        </li>
+        <% if (user) { %>
+        <li>
+          <a href="/profile" class="navigation-link">Profile</a>
+        </li>
+        <% } %>
+      </ul>
+    </nav>
+  </div>
+  <% if (user) { %>
+  <div class="bg-slate-100">
+    <div class="container">
+      <div class="flex items-center justify-between py-2 sm:gap-8">
+        <div class="flex items-center gap-4">
+          <p id="current-user-email" class="text-sm"><%= user.email %></p>
+          <% if (user.admin) { %>
+          <p
+            class="px-2 py-1 text-sm font-semibold text-yellow-900 bg-yellow-200 rounded shadow"
+          >
+            Administrator
+          </p>
+          <% } %>
+        </div>
+        <form action="/logout" method="post" class="p-0 shadow-none">
+          <button type="submit" class="px-2 py-1 text-sm">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</header>
+
+<%- include('messages') %>

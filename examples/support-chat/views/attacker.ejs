@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attacker</title>
+    <link rel="icon" href="https://fav.farm/👽" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./client/attacker.ts" defer></script>
+  </head>
+  <body class="bg-pink-100">
+    <main
+      class="container flex flex-col items-center justify-center gap-16 py-16"
+    >
+      <form class="w-full gap-4 rounded-lg shadow-lg" id="payload">
+        <input type="text" id="participant" placeholder="Participant" />
+        <input type="text" id="message" placeholder="Message" />
+        <button id="send-message">Send Message</button>
+      </form>
+      <iframe
+        id="victim"
+        class="rounded-lg shadow-lg"
+        src="http://localhost:<%= process.env.VICTIM_PORT %>"
+        width="100%"
+        height="400"
+      ></iframe>
+    </main>
+  </body>
+</html>

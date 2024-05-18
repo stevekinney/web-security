@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "module": "NodeNext",
+    "declaration": true,
+    "noEmit": true,
+    "checkJs": true,
+    "strict": true,
+    "paths": {
+      "#shared": ["./shared/index.js"],
+      "#shared/*": ["./shared/*"]
+    }
+  },
+  "include": ["shared/**/*.js", "examples/**/*.ts", "examples/**/*.js"],
+  "exclude": ["node_modules", "dist"]
+}

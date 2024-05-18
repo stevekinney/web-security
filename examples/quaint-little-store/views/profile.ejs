@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <%- include('partials/header') %>
+
+    <main class="container">
+      <h2>Customer Account</h2>
+
+      <form
+        action="/profile"
+        method="post"
+        id="profile"
+        class="p-4 rounded shadow bg-blue-50"
+      >
+        <input type="hidden" name="_method" value="patch" />
+        <div class="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2 md:gap-8">
+          <section class="flex flex-col gap-4">
+            <div>
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                value="<%- user?.name %>"
+                type="text"
+              />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                value="<%- user?.email %>"
+                type="text"
+              />
+            </div>
+
+            <div>
+              <label for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                value="<%- user?.password %>"
+                type="password"
+              />
+            </div>
+          </section>
+          <section class="flex flex-col gap-4">
+            <div>
+              <label for="creditCard">Credit Card Number</label>
+              <input
+                id="creditCard"
+                name="creditCard"
+                value="<%- user?.creditCard %>"
+                type="text"
+              />
+            </div>
+
+            <div>
+              <label id="expirationDate">Expiration Date</label>
+              <input value="<%- user?.expirationDate %>" type="text" />
+            </div>
+
+            <div>
+              <label for="cvv">CVV</label>
+              <input id="cvv" name="cvv" value="<%- user?.cvv %>" type="text" />
+            </div>
+          </section>
+        </div>
+
+        <button type="submit">Update</button>
+      </form>
+    </main>
+    <script src="./client/profile.ts" type="module" defer></script>
+  </body>
+</html>

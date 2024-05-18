@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <%- include('partials/header') %>
+
+    <main class="container">
+      <h2>Our Products</h2>
+
+      <div class="my-8">
+        <label for="search">Search for Products</label>
+        <input
+          type="text"
+          id="search"
+          placeholder="Search products..."
+          value="<%- search %>"
+          autofocus
+        />
+
+        <p class="mt-2 font-sans">
+          Showing the first 10 things
+          <span id="search-term">
+            <%- search ? 'matching "' + search + '".' : 'we have in stock.' %>
+          </span>
+        </p>
+      </div>
+
+      <section id="products" class="products">
+        <% products.forEach(function(product) { %>
+        <div>
+          <a href="/products/<%= product.id %>" class="product">
+            <img
+              class="object-cover rounded shadow-sm"
+              src="<%= product.image %>"
+              alt="<%= product.name %>"
+            />
+            <span class="block font-semibold text-slate-950">
+              <%- product.name %>
+            </span>
+          </a>
+        </div>
+        <% }); %>
+      </section>
+    </main>
+
+    <script src="./client/products.ts" type="module" defer></script>
+  </body>
+</html>

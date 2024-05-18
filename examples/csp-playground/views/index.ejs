@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Good Looking Website</title>
+    <link rel="icon" href="https://fav.farm/🚔" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/client/index.ts" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <style>
+      body {
+        font-family: "Sevillana", sans-serif;
+      }
+
+      .cat {
+        width: 100%;
+        max-width: 32rem;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body class="mx-auto max-w-96">
+    <main class="py-16 text-center">
+      <h1 class="mb-16 text-6xl font-bold">A Good Looking Website</h1>
+
+      <div id="data"></div>
+
+      <img
+        src="https://static.frontendmasters.com/resources/2024-05-31-web-security-v2/thumb.webp"
+        alt="Police Car"
+        class="mx-auto my-8 max-w-32"
+      />
+
+      <img src="/cat.jpg" alt="Cat" class="cat" />
+
+      <div class="my-8">
+        <h2 class="mb-4 text-2xl">Fetch Some Data</h2>
+        <form
+          id="request"
+          method="GET"
+          action="/data"
+          class="flex items-center justify-center gap-2 p-8 my-4 bg-indigo-100 border"
+        >
+          <input id="host" placeholder="localhost" class="p-2" />
+          <span>:</span>
+          <input id="port" placeholder="4002" class="p-2" />
+          <input id="path" placeholder="/data" class="p-2" />
+          <button class="p-2 text-white bg-indigo-500">Fetch Data</button>
+        </form>
+      </div>
+
+      <div class="my-8">
+        <h2 class="mb-4 text-2xl">Post Some Data</h2>
+        <form
+          id="post"
+          method="POST"
+          action="/data"
+          class="flex items-center justify-center gap-2 p-8 my-4 bg-indigo-100 border"
+        >
+          <input id="new-data" placeholder="Something…" class="p-2" />
+          <button class="p-2 text-white bg-indigo-500">Post Data</button>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      fetch("/data")
+        .then((response) => response.json())
+        .then((data) => {
+          const target = document.getElementById("data");
+          target.innerHTML = data
+            .map(
+              (row) =>
+                `<div class="p-8 text-center bg-red-100">${row.value}</div>`
+            )
+            .join("");
+        });
+    </script>
+  </body>
+</html>

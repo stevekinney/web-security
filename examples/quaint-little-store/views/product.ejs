@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <%- include('partials/header') %>
+
+    <main class="container space-y-8">
+      <div class="flex flex-col gap-8 md:flex-row">
+        <img
+          src="<%= product.image %>"
+          alt="<%= product.name %>"
+          class="block object-cover rounded shadow-md max-w-80"
+        />
+        <div>
+          <h2 class="mb-2"><%= product.name %></h2>
+          <p
+            class="text-xl font-sans font-bold text-blue-500 before:content-['$'] before:text-blue-900"
+          >
+            <span id="product-price"><%= product.price.toFixed(2) %></span>
+          </p>
+          <dl class="flex gap-4 mb-4">
+            <div class="flex gap-2">
+              <dt class="font-sans font-semibold">Category</dt>
+              <dd><%= product.category %></dd>
+            </div>
+            <div class="flex gap-2">
+              <dt class="font-sans font-semibold">In stock</dt>
+              <dd><%= product.quantity %></dd>
+            </div>
+          </dl>
+          <p class="description"><%= product.description %></p>
+        </div>
+      </div>
+
+      <% if (user && user.admin) { %>
+      <div id="admin-controls">
+        <form
+          action="/products/<%= product.id %>"
+          id="update-product"
+          method="patch"
+          class="p-4 space-y-8 rounded bg-purple-50"
+        >
+          <h3>Super Secret Administrator Controls</h3>
+          <p>For administrative use <strong>only</strong>.</p>
+          <div>
+            <label for="price">Price</label>
+            <input
+              type="number"
+              name="price"
+              id="price"
+              value="<%= product.price %>"
+              min="0"
+              max="1000"
+              step="0.01"
+              placeholder="Price"
+              class="p-2 border border-purple-300 rounded focus:ring-purple-500"
+            />
+          </div>
+          <button type="submit">Update Price</button>
+        </form>
+      </div>
+      <% } %>
+    </main>
+
+    <script src="/client/product.ts" type="module" defer></script>
+  </body>
+</html>

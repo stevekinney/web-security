@@ -1,0 +1,23 @@
+{
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.handlebars",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.hbs",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.ejs",
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+@import '#shared/styles.css';
+
+@layer components {
+  .account-balance {
+    @apply before:content-['$'];
+  }
+}
