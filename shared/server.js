@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3000;
  * @returns {import('express').Application}
  */
 export const createServer = ({
-  log = true,
+  log = false,
   cookies = true,
   secret = 'super-secret',
   viewEngine = 'ejs',
