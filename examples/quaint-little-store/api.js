@@ -14,7 +14,7 @@ api.get('/profile', async (req, res) => {
   return res.json({ user });
 });
 
-api.get('/api/products', async (req, res) => {
+api.get('/products', async (req, res) => {
   const search = req.query.search || '';
   const limit = req.query.limit || 10;
 
@@ -28,7 +28,7 @@ api.get('/api/products', async (req, res) => {
   }
 });
 
-api.get('/api/products/:id', async (req, res) => {
+api.get('/products/:id', async (req, res) => {
   const product = await db.get(
     `SELECT * FROM products WHERE id = ${req.params.id}`
   );
@@ -41,7 +41,7 @@ api.get('/api/products/:id', async (req, res) => {
   res.json({ product });
 });
 
-api.get('/api/users', async (req, res) => {
+api.get('/users', async (req, res) => {
   const search = req.query.search || '';
   const sql = `SELECT name FROM users WHERE name LIKE '${search}%'`;
 

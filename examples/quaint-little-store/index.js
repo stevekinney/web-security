@@ -24,7 +24,8 @@ app.use(async (req, res, next) => {
 
   if (session) {
     res.locals.user = await db.get(
-      `SELECT * FROM users INNER JOIN sessions ON users.id = sessions.userId WHERE sessions.sessionId = '${session}'`
+      `SELECT * FROM users INNER JOIN sessions ON users.id = sessions.userId WHERE sessions.sessionId = ?`,
+      [session]
     );
   }
 
@@ -47,7 +48,8 @@ app.post('/login', async (req, res) => {
   const password = req.body.password;
 
   const user = await db.get(
-    `SELECT * FROM users WHERE email = '${email}' AND password = '${password}'`
+    `SELECT * FROM users WHERE email = ? AND password = ?'`,
+    [email, password]
   );
 
   if (user) {
@@ -130,7 +132,9 @@ app.get('/profile', async (req, res) => {
 app.patch('/profile', async (req, res) => {
   if (!res.locals.user) return res.status(403).send({ error: 'Forbidden' });
 
-  const fields = toParamsAndValues(req.body);
+  const { name, email, password } = req.body;
+
+  const fields = toParamsAndValues({ name, email, password });
   const sql = `UPDATE users SET ${fields} WHERE id = ${res.locals.user.id}`;
 
   try {
