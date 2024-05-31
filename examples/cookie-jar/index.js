@@ -6,6 +6,7 @@ import db from './database.js';
 const app = createServer({ cookies: false });
 
 app.get('/', (req, res) => {
+  if (!req.cookies) res.send('Cookies are disabled.');
   if (req.cookies.username) {
     res.redirect('/profile');
   } else {
